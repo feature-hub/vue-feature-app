@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Feature Hub Vue</title>
+    <style>
+      div[slot="error"] {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <feature-app-loader src="../dist/build/feature-app.js">
+      <div slot="loading">
+        Loading...
+      </div>
+      <div slot="error">
+        Sorry. We Messed Up.
+      </div>
+    </feature-app-loader>
+
+    <script src="../dist/build/integrator.js"></script>
+
+    <style>
+      div[slot="error"] {
+        display: initial;
+      }
+    </style>
+  </body>
+</html>

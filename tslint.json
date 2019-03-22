@@ -1,0 +1,8 @@
+{
+  "extends": "ts-config",
+  "linterOptions": {"exclude": ["**/lib/**", "**/node_modules/**"]},
+  "rules": {
+    "no-unused-expression": false,
+    "no-default-export": false
+  }
+}
