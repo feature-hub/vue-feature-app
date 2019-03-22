@@ -7,7 +7,7 @@ into a [Feature Hub](https://feature-hub.io) application using the
 ## Run
 
 ```sh
-yarn serve
+yarn run build && yarn serve
 ```
 
 Open [http://localhost:5000/public/](http://localhost:5000/public/) in your
