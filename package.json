@@ -5,8 +5,8 @@
   "license": "MIT",
   "scripts": {
     "build": "yarn build:feature-app && yarn build:integrator",
-    "build:feature-app": "webpack --config feature-app.webpack.config.js",
-    "build:integrator": "webpack --config integrator.webpack.config.js",
+    "build:feature-app": "webpack --openssl-legacy-provider --config feature-app.webpack.config.js",
+    "build:integrator": "webpack --openssl-legacy-provider --config integrator.webpack.config.js",
     "format": "prettier --write '**/*.{js,json,md,ts,tsx,vue,yml}'",
     "lint": "tslint --config tslint.json --project tsconfig.json --format verbose"
   },
