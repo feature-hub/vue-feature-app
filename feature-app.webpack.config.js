@@ -10,17 +10,17 @@ const {VueLoaderPlugin} = require('vue-loader');
 module.exports = {
   devtool: false,
   mode: 'production',
-  entry: path.join(__dirname, 'src/feature-app/index.js'),
+  entry: path.join(__dirname, 'src/feature-app/index.ts'),
   output: {
     libraryTarget: 'amd',
     filename: './build/feature-app.js'
   },
   module: {
     rules: [
-      // {
-      //   test: /\.ts$/,
-      //   use: 'ts-loader'
-      // },
+      {
+        test: /\.ts$/,
+        use: 'ts-loader'
+      },
       {
         test: /\.vue$/,
         use: [

@@ -1,9 +1,9 @@
 import {FeatureAppDefinition} from '@feature-hub/core';
 import {DomFeatureApp} from '@feature-hub/dom';
-import Vue, {CreateElement, VNode} from 'vue';
-import {ThisTypedComponentOptionsWithArrayProps} from 'vue/types/options';
+import {VNode, h, createApp, App as Application} from 'vue';
 
-import App from './App.vue';
+import MyApp from './App.vue';
+
 
 export interface InstanceConfig {
   name: string;
@@ -14,13 +14,20 @@ const featureAppDefinition: FeatureAppDefinition<DomFeatureApp> = {
 
   create: env => ({
     attachTo(el: HTMLElement): void {
-      new Vue({
-        el,
-        shadowRoot: el.getRootNode(),
-        render(h: CreateElement): VNode {
-          return h(App, {props: env.instanceConfig as InstanceConfig});
+      console.log('attachTo', env);
+
+      const app: Application = createApp({
+        data() {
+          return {
+            test: true
+          };
+        },
+        render(): VNode {
+          return h((MyApp as any), (env.instanceConfig as any));
         }
-      } as ThisTypedComponentOptionsWithArrayProps<Vue, {}, {}, {}, never>);
+      })
+
+      app.mount(el);
     }
   })
 };

@@ -3,7 +3,10 @@
 </template>
 
 <script>
-export default {
+import {defineComponent} from 'vue'
+
+
+export default defineComponent({
   data: function() {
 
     console.log("this", this)
@@ -12,7 +15,7 @@ export default {
       name: this._.attrs['name']
     };
   }
-};
+});
 </script>
 
 <style scoped>

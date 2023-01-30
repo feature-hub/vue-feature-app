@@ -9,16 +9,16 @@ const webpack = require('webpack');
 module.exports = {
   devtool: false,
   mode: 'development',
-  entry: path.join(__dirname, 'src/integrator/index.js'),
+  entry: path.join(__dirname, 'src/integrator/index.ts'),
   output: {
     filename: './build/integrator.js'
   },
   module: {
-    // rules: [
-    //   {
-    //     test: /\.ts$/,
-    //     use: 'ts-loader'
-    //   }
-    // ]
+    rules: [
+      {
+        test: /\.ts$/,
+        use: 'ts-loader'
+      }
+    ]
   }
 };
