@@ -1,21 +1,26 @@
-import Vue from 'vue';
-
+import {createApp, h} from 'vue';
 
 import App from './App.vue';
 
-
-const featureAppDefinition= {
+const featureAppDefinition = {
   id: 'test:hello-world',
 
   create: env => ({
     attachTo(el) {
-      new Vue({
-        el,
-        shadowRoot: el.getRootNode(),
-        render(h) {
-          return h(App, {props: env.instanceConfig});
+      console.log('attachTo', env);
+
+      const app = createApp({
+        data() {
+          return {
+            test: true
+          };
+        },
+        render() {
+          return h(App, env.instanceConfig);
         }
       });
+
+      app.mount(el);
     }
   })
 };

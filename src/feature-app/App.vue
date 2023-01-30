@@ -5,8 +5,11 @@
 <script>
 export default {
   data: function() {
+
+    console.log("this", this)
+
     return {
-      name: this.$vnode.data.props['name']
+      name: this._.attrs['name']
     };
   }
 };
