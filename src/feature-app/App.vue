@@ -8,9 +8,6 @@ import {defineComponent} from 'vue'
 
 export default defineComponent({
   data: function() {
-
-    console.log("this", this)
-
     return {
       name: this._.attrs['name']
     };
