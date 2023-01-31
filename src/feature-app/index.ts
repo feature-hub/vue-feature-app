@@ -1,6 +1,6 @@
 import {FeatureAppDefinition} from '@feature-hub/core';
 import {DomFeatureApp} from '@feature-hub/dom';
-import {VNode, h, createApp, App as Application} from 'vue';
+import {App as Application, createApp} from 'vue';
 
 import MyApp from './App.vue';
 
@@ -10,21 +10,10 @@ export interface InstanceConfig {
 }
 
 const featureAppDefinition: FeatureAppDefinition<DomFeatureApp> = {
-  id: 'test:hello-world',
-
   create: env => ({
+    featureAppId: 'test:hello-world',
     attachTo(el: HTMLElement): void {
-      const app: Application = createApp({
-        data() {
-          return {
-            test: true
-          };
-        },
-        render(): VNode {
-          return h((MyApp as any), (env.instanceConfig as any));
-        }
-      })
-
+      const app: Application = createApp((MyApp as any), (env.config as any))
       app.mount(el);
     }
   })
