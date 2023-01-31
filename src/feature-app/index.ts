@@ -14,8 +14,6 @@ const featureAppDefinition: FeatureAppDefinition<DomFeatureApp> = {
 
   create: env => ({
     attachTo(el: HTMLElement): void {
-      console.log('attachTo', env);
-
       const app: Application = createApp({
         data() {
           return {
