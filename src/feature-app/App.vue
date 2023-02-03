@@ -3,13 +3,16 @@
 </template>
 
 <script>
-export default {
+import {defineComponent} from 'vue'
+
+
+export default defineComponent({
   data: function() {
     return {
-      name: this.$vnode.data.props['name']
+      name: this._.attrs['name']
     };
   }
-};
+});
 </script>
 
 <style scoped>

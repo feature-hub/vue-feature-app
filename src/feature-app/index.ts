@@ -1,26 +1,20 @@
 import {FeatureAppDefinition} from '@feature-hub/core';
 import {DomFeatureApp} from '@feature-hub/dom';
-import Vue, {CreateElement, VNode} from 'vue';
-import {ThisTypedComponentOptionsWithArrayProps} from 'vue/types/options';
+import {App as Application, createApp} from 'vue';
 
-import App from './App.vue';
+import MyApp from './App.vue';
+
 
 export interface InstanceConfig {
   name: string;
 }
 
 const featureAppDefinition: FeatureAppDefinition<DomFeatureApp> = {
-  id: 'test:hello-world',
-
   create: env => ({
+    featureAppId: 'test:hello-world',
     attachTo(el: HTMLElement): void {
-      new Vue({
-        el,
-        shadowRoot: el.getRootNode(),
-        render(h: CreateElement): VNode {
-          return h(App, {props: env.instanceConfig as InstanceConfig});
-        }
-      } as ThisTypedComponentOptionsWithArrayProps<Vue, {}, {}, {}, never>);
+      const app: Application = createApp((MyApp as any), (env.config as any))
+      app.mount(el);
     }
   })
 };

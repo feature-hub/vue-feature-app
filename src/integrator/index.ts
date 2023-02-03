@@ -22,7 +22,7 @@ const featureAppLoader = document
   .item(0);
 
 if (featureAppLoader) {
-  featureAppLoader.instanceConfig = {
+  featureAppLoader.config = {
     name: 'Feature Hub'
   };
 }
